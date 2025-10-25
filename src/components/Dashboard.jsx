@@ -5,31 +5,31 @@ import useWindowWidth from '../hooks/useWindowWidth';
 const Dashboard = () => {
   const windowWidth = useWindowWidth();
 
-  // Logic to determine grid columns based on window width
+
   const getGridCols = () => {
-    // 1. Large view (like your screenshot)
+  
     if (windowWidth >= 1400) {
-      return 'grid-cols-7'; // 7 columns
+      return 'grid-cols-7'; 
     }
-    // 2. Medium-Large view
+   
     if (windowWidth >= 1024) {
-      return 'grid-cols-5'; // 5 columns
+      return 'grid-cols-5'; 
     }
-    // 3. Tablet view
+  
     if (windowWidth >= 768) {
-      return 'grid-cols-4'; // 4 columns
+      return 'grid-cols-4'; 
     }
-    // 4. Mobile view
+ 
     if (windowWidth >= 640) {
-      return 'grid-cols-2'; // 2 columns
+      return 'grid-cols-2'; 
     }
-    // 5. Small-Mobile view
-    return 'grid-cols-1'; // 1 column
+  
+    return 'grid-cols-1'; 
   };
 
   const gridClass = getGridCols();
 
-  // Create an array to map over, like in your screenshot (21 items)
+  
   const cards = Array(21).fill(0);
 
   return (
@@ -38,9 +38,7 @@ const Dashboard = () => {
         Select company to monitor
       </h2>
       
-      {/* The grid container. The 'gridClass' is dynamically set 
-        by the 'useWindowWidth' hook, fulfilling the assignment.
-      */}
+      
       <div className={`grid ${gridClass} gap-6`}>
         {cards.map((_, index) => (
           <CompanyCard key={index} />
